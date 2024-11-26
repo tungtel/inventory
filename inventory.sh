@@ -3,9 +3,10 @@
 # Input file containing the list of filenames
 filelist="inventory_list.txt"
 
-# Output file to store the combined extracted output
+# Output file to store the combined extracted output , empty the file before write
 output_file="inventory_output.txt"
 > inventory_output.txt
+
 # Loop through each filename in the filelist
 while IFS= read -r inventory_list; do
   # Execute the sed command and append the output to the output file
