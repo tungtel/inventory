@@ -1,4 +1,3 @@
-[rancid@netbackup1ext inventory]$ cat extract_output_v1.sh 
 #!/bin/bash
 
 # Input file path
@@ -9,8 +8,8 @@ echo -e "Range 1 (29-40)\tRange 2 (42-55)\tRange 3 (60-80)"
 
 # Read file line by line and extract ranges
 while IFS= read -r line; do
-    # Skip lines containing "show chassis", "----------", or "BUILTIN"
-    if [[ "$line" == *"show chassis"* || "$line" == *"----------"* || "$line" == *"BUILTIN"* ]]; then
+    # Skip lines containing "show chassis", "----------", "BUILTIN", "Routing Engine"
+    if [[ "$line" == *"show chassis"* || "$line" == *"----------"* || "$line" == *"BUILTIN"* || "$line" == *"Routing Engine"* ]]; then
         continue
     fi
 
