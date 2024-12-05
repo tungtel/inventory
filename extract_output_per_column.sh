@@ -8,8 +8,9 @@ echo -e "Range 1 (29-40)\tRange 2 (42-55)\tRange 3 (60-80)"
 
 # Read file line by line and extract ranges
 while IFS= read -r line; do
-    # Skip lines containing "show chassis", "----------", "BUILTIN", "Routing Engine"
-    if [[ "$line" == *"show chassis"* || "$line" == *"----------"* || "$line" == *"BUILTIN"* || "$line" == *"Routing Engine"* ]]; then
+    # Skip lines containing "show chassis", "----------", "BUILTIN"
+    # and lines containing both "Routing Engine" and "EX"
+    if [[ "$line" == *"show chassis"* || "$line" == *"----------"* || "$line" == *"BUILTIN"* || ( "$line" == *"Routing Engine"* && "$line" == *"EX"* ) ]]; then
         continue
     fi
 
